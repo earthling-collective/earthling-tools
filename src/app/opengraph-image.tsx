@@ -7,8 +7,8 @@ export const contentType = "image/png";
 
 export default function Image() {
   return renderOg({
-    title: "Useful tools. Nothing uploaded.",
+    title: "Convert, decode, generate. No ads. No sign-up.",
     description: site.tagline,
-    eyebrow: "Open source · Runs in your browser",
+    eyebrow: "Free · Open source · Runs in your browser",
   });
 }

@@ -35,12 +35,13 @@ function Card({ title, href, children }: { title: string; href: string; children
   return (
     <div className="bg-background rounded-xl border p-5 shadow-xs">
       <div className="mb-4 flex items-center justify-between gap-3">
-        <h2 className="text-sm font-medium">{title}</h2>
+        <h2 className="truncate text-sm font-medium">{title}</h2>
         <Link
           href={href}
-          className="text-muted-foreground hover:text-foreground flex items-center gap-1 text-xs"
+          aria-label={`Open ${title} tool`}
+          className="text-muted-foreground hover:text-foreground flex shrink-0 items-center gap-1 text-xs"
         >
-          Open tool
+          <span className="hidden lg:inline">Open tool</span>
           <i aria-hidden="true" className="icon-[lucide--arrow-up-right] size-3.5" />
         </Link>
       </div>

@@ -8,8 +8,8 @@ import { categories, tools, toolsIn } from "@/lib/tools";
 const pillars = [
   {
     index: "01",
-    title: "Nothing leaves the tab.",
-    copy: "Every tool runs in the browser. No uploads, no accounts, and it keeps working offline once loaded.",
+    title: "No ads, ever.",
+    copy: "Everything runs in your browser: no uploads, no queues, no accounts. Once loaded, it works offline too.",
   },
   {
     index: "02",
@@ -52,31 +52,29 @@ export default function HomePage() {
           >
             <span className="bg-foreground size-1.5 rounded-full" />
             {tools.length} tools
-            <span aria-hidden="true">·</span>Open source
+            <span aria-hidden="true">·</span>Free and open source
             <i aria-hidden="true" className="icon-[lucide--arrow-up-right]" />
           </a>
-          <div className="grid items-end gap-7 md:grid-cols-[1.15fr_1fr]">
-            <h1 className="text-[clamp(2.75rem,5.5vw,4.5rem)] leading-[1.05] font-semibold tracking-[-0.055em]">
-              Useful tools.
-              <br />
-              <span className="text-muted-foreground">Nothing uploaded.</span>
-            </h1>
-            <div>
-              <p className="text-muted-foreground max-w-md text-base leading-7">
-                Developer tools that run entirely in your browser: convert, generate, decode, resize and hash.
-                Free, open source, and built with {site.ui.name}.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild>
-                  <Link href="#tools">
-                    Browse tools
-                    <i aria-hidden="true" className="icon-[lucide--arrow-right]" />
-                  </Link>
-                </Button>
-                <Button asChild material="outline" scheme="neutral">
-                  <a href={site.repo}>View source</a>
-                </Button>
-              </div>
+          <h1 className="text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.05] font-semibold tracking-[-0.055em]">
+            Convert, decode, generate.
+            <br />
+            <span className="text-muted-foreground">No ads. No sign‑up.</span>
+          </h1>
+          <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <p className="text-muted-foreground max-w-xl text-base leading-7">
+              A clean set of developer utilities: image, audio and color converters, JWT and cron inspectors,
+              hashes, diffs and generators. Free, open source, and built with {site.ui.name}.
+            </p>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <Button asChild>
+                <Link href="#tools">
+                  Browse tools
+                  <i aria-hidden="true" className="icon-[lucide--arrow-right]" />
+                </Link>
+              </Button>
+              <Button asChild material="outline" scheme="neutral">
+                <a href={site.repo}>View source</a>
+              </Button>
             </div>
           </div>
         </section>
@@ -110,11 +108,11 @@ export default function HomePage() {
               {tools.length} tools
             </span>
           </div>
-          <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
+          <div className="gap-x-10 md:columns-2">
             {categories.map((category) => {
               const list = toolsIn(category.id);
               return (
-                <section key={category.id} id={category.id}>
+                <section key={category.id} id={category.id} className="mb-10 break-inside-avoid">
                   <div className="mb-3 flex items-center gap-2.5">
                     <i aria-hidden="true" className={"text-muted-foreground size-4 " + category.icon} />
                     <h3 className="text-sm font-semibold">{category.label}</h3>
