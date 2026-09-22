@@ -89,11 +89,12 @@ export function TextTool({ initialSlug }: { initialSlug: string }) {
                 scheme="neutral"
                 size="sm"
                 disabled={!result.output}
-                className="gap-1.5"
+                className="gap-1.5 max-sm:px-2"
+                aria-label="Use output as input"
                 onClick={() => setInput(result.output)}
               >
                 <i aria-hidden="true" className="icon-[lucide--corner-up-left]" />
-                Use as input
+                <span className="max-sm:sr-only">Use as input</span>
               </Button>
               <CopyButton content={result.output} disabled={!result.output} className="-mr-2" />
             </PanelHeader>

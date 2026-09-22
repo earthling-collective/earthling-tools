@@ -33,7 +33,7 @@ const gradient = `linear-gradient(90deg, ${Array.from({ length: 12 }, (_, i) => 
 
 function Card({ title, href, children }: { title: string; href: string; children: React.ReactNode }) {
   return (
-    <div className="bg-background rounded-xl border p-5 shadow-xs">
+    <div className="bg-background min-w-0 rounded-xl border p-5 shadow-xs">
       <div className="mb-4 flex items-center justify-between gap-3">
         <h2 className="truncate text-sm font-medium">{title}</h2>
         <Link
@@ -77,7 +77,7 @@ export function Specimen() {
           Running in this tab
         </span>
       </div>
-      <div className="grid gap-5 md:grid-cols-[1.1fr_1fr]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-[1.1fr_1fr]">
         <Card title="SHA-256" href="/hash/sha256">
           <Label htmlFor="specimen-text" className="mb-2 block text-xs">
             Text to hash
@@ -92,7 +92,7 @@ export function Specimen() {
             {hash || " "}
           </code>
         </Card>
-        <div className="grid gap-5">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-5">
           <Card title="UUID v4" href="/generate/uuid">
             <div className="flex items-center gap-2">
               <code className="bg-muted/50 flex h-9 min-w-0 flex-1 items-center truncate rounded-lg border px-3 font-mono text-xs">
@@ -110,9 +110,9 @@ export function Specimen() {
               </Button>
             </div>
           </Card>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2">
             <Card title="Unix time" href="/timestamp">
-              <span className="font-mono text-lg tabular-nums">{now || "…"}</span>
+              <span className="font-mono text-lg break-all tabular-nums">{now || "…"}</span>
             </Card>
             <Card title="Palette" href="/palette">
               <div className="h-7 rounded-md border" style={{ background: gradient }} />

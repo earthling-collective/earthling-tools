@@ -25,5 +25,5 @@ export function NumberInput({ className, ...rest }: Omit<ComponentProps<typeof I
 }
 
 export function MonoInput({ className, ...rest }: ComponentProps<typeof Input>) {
-  return <Input {...rest} className={cn("font-mono", className)} />;
+  return <Input {...rest} className={cn("w-full min-w-0 font-mono", className)} />;
 }
