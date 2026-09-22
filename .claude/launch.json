@@ -1,6 +1,44 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "dev", "runtimeExecutable": "bun", "runtimeArgs": ["run", "dev", "--port", "3457"], "port": 3457 }
+    {
+      "name": "dev",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--port",
+        "3457"
+      ],
+      "port": 3457
+    },
+    {
+      "name": "collective",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "../earthling-site",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5174",
+        "--strictPort"
+      ],
+      "port": 5174
+    },
+    {
+      "name": "ui-docs",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": [
+        "run",
+        "--cwd",
+        "../earthling-ui/apps/docs",
+        "dev",
+        "-p",
+        "3458"
+      ],
+      "port": 3458
+    }
   ]
 }

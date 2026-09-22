@@ -39,7 +39,7 @@ export async function renderOg({
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 72,
-        background: "#111010",
+        background: "#09090b",
         color: "#f5f5f4",
         fontFamily: "Manrope",
         position: "relative",

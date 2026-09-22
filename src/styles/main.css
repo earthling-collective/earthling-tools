@@ -18,6 +18,13 @@
   }
   :root[data-theme="dark"] {
     @apply theme-dark;
+    /* Canvas and surfaces follow earthling.dev */
+    --color-background: oklch(0.1408 0.0044 285.8);
+    --color-surface: oklch(0.1739 0.0041 286.0);
+    --color-foreground: oklch(0.9467 0.0027 286.3);
+    --color-muted-foreground: oklch(0.6496 0.0141 266.6);
+    --color-tertiary: oklch(0.1881 0.0060 285.8);
+    --color-muted: oklch(0.2452 0.0075 285.8);
     --syntax-keyword: oklch(0.8 0.085 300);
     --syntax-string: oklch(0.8 0.09 155);
     --syntax-number: oklch(0.81 0.085 60);
@@ -26,6 +33,13 @@
   @media (prefers-color-scheme: dark) {
     :root[data-theme="system"] {
       @apply theme-dark;
+      /* Canvas and surfaces follow earthling.dev */
+      --color-background: oklch(0.1408 0.0044 285.8);
+      --color-surface: oklch(0.1739 0.0041 286.0);
+      --color-foreground: oklch(0.9467 0.0027 286.3);
+      --color-muted-foreground: oklch(0.6496 0.0141 266.6);
+      --color-tertiary: oklch(0.1881 0.0060 285.8);
+      --color-muted: oklch(0.2452 0.0075 285.8);
       --syntax-keyword: oklch(0.8 0.085 300);
       --syntax-string: oklch(0.8 0.09 155);
       --syntax-number: oklch(0.81 0.085 60);
