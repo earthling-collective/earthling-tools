@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "earthling-ui";
+@import "earthling-ui/theme/dark";
+
+@theme {
+  --font-display: var(--font-display-face);
+  --font-body: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --color-line: color-mix(in oklch, var(--color-foreground) 12%, transparent);
+}
+
+@layer base {
+  :root {
+    --syntax-keyword: oklch(0.43 0.1 300);
+    --syntax-string: oklch(0.4 0.075 155);
+    --syntax-number: oklch(0.43 0.1 50);
+    --syntax-title: oklch(0.43 0.085 250);
+  }
+  :root[data-theme="dark"] {
+    @apply theme-dark;
+    --syntax-keyword: oklch(0.8 0.085 300);
+    --syntax-string: oklch(0.8 0.09 155);
+    --syntax-number: oklch(0.81 0.085 60);
+    --syntax-title: oklch(0.8 0.085 250);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root[data-theme="system"] {
+      @apply theme-dark;
+      --syntax-keyword: oklch(0.8 0.085 300);
+      --syntax-string: oklch(0.8 0.09 155);
+      --syntax-number: oklch(0.81 0.085 60);
+      --syntax-title: oklch(0.8 0.085 250);
+    }
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--color-foreground) 15%, transparent);
+  }
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+/* Small muted label, the docs site voice */
+@utility eyebrow {
+  @apply text-muted-foreground text-xs font-medium;
+}
+
+@layer components {
+  .nav-label {
+    @apply text-muted-foreground mb-2 px-3 text-xs font-medium;
+  }
+  .nav-link {
+    @apply text-muted-foreground hover:bg-muted/60 hover:text-foreground focus-visible:outline-outline rounded-lg px-3 py-1.5 text-[13px] leading-5 focus-visible:outline-2;
+  }
+  .nav-link[aria-current="page"] {
+    @apply bg-muted text-foreground font-medium;
+  }
+  .docs-link {
+    @apply text-foreground underline decoration-current/30 underline-offset-4 hover:decoration-current;
+  }
+  /* Dotted canvas that frames a set of working panels */
+  .preview-canvas {
+    background-color: var(--color-surface);
+    background-image: radial-gradient(
+      color-mix(in oklch, var(--color-foreground) 9%, transparent) 0.7px,
+      transparent 0.7px
+    );
+    background-size: 12px 12px;
+  }
+  .code-block {
+    @apply bg-tertiary/45 text-foreground;
+  }
+  .code-block pre {
+    font-family: var(--font-mono);
+  }
+  .hljs-comment,
+  .hljs-quote {
+    color: var(--color-muted-foreground);
+  }
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-literal,
+  .hljs-doctag {
+    color: var(--syntax-keyword);
+  }
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute {
+    color: var(--syntax-string);
+  }
+  .hljs-number,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: var(--syntax-number);
+  }
+  .hljs-title,
+  .hljs-name,
+  .hljs-built_in,
+  .hljs-type,
+  .hljs-attr,
+  .hljs-meta {
+    color: var(--syntax-title);
+  }
+  .hljs-deletion {
+    color: var(--color-bad);
+  }
+}
